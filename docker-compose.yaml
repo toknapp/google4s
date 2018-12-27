@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+
+  pubsub:
+    build:
+      context: ./gpubsub/src/it/resources/docker
+    ports:
+      - "8086:8086"
+    entrypoint:
+      - "/bin/sh"
+      - "-c"
+      - "gcloud beta emulators pubsub start --host-port=0.0.0.0:8086"
+
+  it:
+    build:
+      context: .
+      dockerfile: docker/sbt.dockerfile
+    command: ["it:test"]
+    depends_on:
+      - pubsub
+    environment:
+      PUBSUB_TEST_HOST: pubsub:8086
