@@ -60,15 +60,34 @@ jobs:
       IMPORT_SIGNING_KEY: "1"
       SBT_COMMAND: "publishSigned"
 
+  integration-test:
+    docker:
+      - image: docker/compose:1.21.2
+    steps:
+      - run: apk update && apk add curl git openssh-client coreutils
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - checkout
+      - run: docker-compose build
+      - run:
+          name: Run integration tests
+          command: docker-compose run it
+          no_output_timeout: 30m
+
 workflows:
   version: 2
   ci:
     jobs:
+    - integration-test
     - release:
         filters:
           branches:
             only: master
+        requires:
+          - integration-test
     - release-snapshot:
         filters:
           branches:
             only: develop
+        requires:
+          - integration-test
