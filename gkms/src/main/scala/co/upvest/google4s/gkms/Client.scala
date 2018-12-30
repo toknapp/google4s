@@ -63,19 +63,25 @@ object Client {
 
       override def encrypt(p: PlainText[Array[Byte]], k: Key) =
         lift { () =>
-          val ep = client.encrypt(
-            k.resourceId(c.gProjectName),
-            Gbytes.copyFrom(p.t)
-          ).getCiphertext.toByteArray
+          val ep = client
+            .encrypt(
+              k.resourceId(c.gProjectName),
+              Gbytes.copyFrom(p.t)
+            )
+            .getCiphertext
+            .toByteArray
           Encrypted(ep)
         }
 
       override def decrypt(e: Encrypted[Array[Byte]], k: Key) =
         lift { () =>
-            val pt = client.decrypt(
+          val pt = client
+            .decrypt(
               k.resourceId(c.gProjectName),
               Gbytes.copyFrom(e.t)
-            ).getPlaintext.toByteArray
+            )
+            .getPlaintext
+            .toByteArray
           PlainText(pt)
         }
 
