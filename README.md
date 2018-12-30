@@ -1,5 +1,10 @@
 # Google4s
 
+[![Build Status](https://circleci.com/gh/toknapp/google4s.svg?style=svg)](https://circleci.com/gh/toknapp/google4s)
+[![Latest version](https://index.scala-lang.org/toknapp/google4s/google4s-gkms/latest.svg?color=orange)](https://index.scala-lang.org/toknapp/google4s/google4s-gkms)
+[![Latest version](https://index.scala-lang.org/toknapp/google4s/google4s-gpubsub/latest.svg?color=orange)](https://index.scala-lang.org/toknapp/google4s/google4s-gpubsub)
+[![Latest version](https://index.scala-lang.org/toknapp/google4s/google4s-gstorage/latest.svg?color=orange)](https://index.scala-lang.org/toknapp/google4s/google4s-gstorage)
+
 This project aims to provide safe, composable and easy to use clients for [Google Cloud Platform Services](https://github.com/googleapis/google-cloud-java) written
 in functional style **Scala**.
 
