@@ -1,5 +1,10 @@
 # Google4s
 
+[![Build Status](https://circleci.com/gh/toknapp/google4s.svg?style=svg)](https://circleci.com/gh/toknapp/google4s)
+[![Latest version](https://index.scala-lang.org/toknapp/google4s/google4s-gkms/latest.svg?color=orange)](https://index.scala-lang.org/toknapp/google4s/google4s-gkms)
+[![Latest version](https://index.scala-lang.org/toknapp/google4s/google4s-gpubsub/latest.svg?color=orange)](https://index.scala-lang.org/toknapp/google4s/google4s-gpubsub)
+[![Latest version](https://index.scala-lang.org/toknapp/google4s/google4s-gstorage/latest.svg?color=orange)](https://index.scala-lang.org/toknapp/google4s/google4s-gstorage)
+
 This project aims to provide safe, composable and easy to use clients for [Google Cloud Platform Services](https://github.com/googleapis/google-cloud-java) written
 in functional style **Scala**.
 
@@ -66,6 +71,6 @@ By questions, comments or suggestions feel free to get in touch by creating an P
 
 Copyright 2019 Ivan Morozov, Gustav Behm, Tokn GmbH (https://upvest.co)
 
-**google4s-gstorage** is provided to you as free software under the MIT license.
+**google4s** is provided to you as free software under the MIT license.
 The MIT software license is attached in the [COPYING](COPYING) file.
 
