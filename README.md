@@ -26,8 +26,11 @@ however, the Java code is mostly generated so it's not really fun to use it.
  
 `google4s` solves this problems by replacing the builder pattern with simple
 method calls with strong data types. Effect handling and concurrency can be
-done in an arbitary kind `F[_]` you just have to provide a natural transformation
-`(() => ?) ~> F`. See `Llift` [for deails](core/src/main/scala/co/upvest/google4s/core/package.scala).
+done in an arbitary kind `F[_]` you just have to provide the natural transformation:
+```scala
+(() => ?) ~> F
+``` 
+See the `Llift` type [for deails](core/src/main/scala/co/upvest/google4s/core/package.scala).
 
 ## Usage
 The clients are structured and released as separate modules.
@@ -44,11 +47,14 @@ libraryDependencies += "co.upvest.google4s" %% "google4s-..."  % "0.0.2-SNAPSHOT
 ```
 
 ## Examples
-Please refer to the specific client documentation for examples
+Please refer to the specific client documentation for examples:
+- [Google Storage](gstorage/README.md)
+- [Google PubSub](gpubsub/README.md) 
+- [Google KMS](gkms/README.md).
 
 ## Contributing
 
-Coming soon... feel free to create a PR we will figure it out.
+Coming soon... PR's are welcome and highly appreciated!
 
 ## Limitations
 

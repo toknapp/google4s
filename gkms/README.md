@@ -1,6 +1,6 @@
 # google4s-gkms
 
-This project aims to provide an easy access to [Google Cloud Key Management Service](https://cloud.google.com/kms/) services.
+This project aims to provide easy access to [Google Cloud Key Management Service](https://cloud.google.com/kms/) services.
 It is a wrapper of the official [google cloud storage java library](https://github.com/googleapis/google-cloud-java/tree/master/google-cloud-clients/google-cloud-kms)
 abstracting over the tedious omniversal builder pattern and the ability to use arbitrary context for effect handling and concurrency.
 
@@ -63,12 +63,11 @@ The current limitations and known issues are stated below. If you think
 something is missed or have to be mentioned here please let us know.
 
 - At the current state, the client does not support administrative
-actions as Key or KeyRing creation as well as Key rotation is not 
-supported programmatically. 
+actions as Key or KeyRing creation as well as Key rotation is not supported programmatically. 
 
 ## Contact
 
-By questions, comments or suggestions feel free to get in touch by creating an PR, issue or telepathically. 
+By questions, comments or suggestions feel free to get in touch by creating a PR, issue or telepathically. 
 
 
 ### Cavecats [sic](https://www.youtube.com/watch?v=a0SuhNn8S60) 

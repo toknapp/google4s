@@ -1,13 +1,13 @@
 # google4s-gpubsub
 
-This project aims to provide an easy access to [Google PubSub](https://cloud.google.com/pubsub/docs/) services.
-It is a wrapper of the official [google pubsub java library](https://github.com/googleapis/google-cloud-java/tree/master/google-cloud-clients/google-cloud-pubsub).
+This project aims to provide easy access to [Google PubSub](https://cloud.google.com/pubsub/docs/) services.
+It is a wrapper of the official [google PubSub Java library](https://github.com/googleapis/google-cloud-java/tree/master/google-cloud-clients/google-cloud-pubsub).
 
 The implementation of `Publisher` abstracts over Google Futures to either publish
 to:
 - A `Flow` in [Akka Streams](https://doc.akka.io/docs/akka/2.5/stream/).
 - Scala's `Future` by converting the`Google Futures`
-- An arbitary context `F[_]` by providing a natural transformation `(() => ?) ~> F` to lift the computation.
+- An arbitrary context `F[_]` by providing a natural transformation `(() => ?) ~> F` to lift the computation.
 
 The implementation of `Subscriber` abstracts over the callbacks to:
 - `Source` in context of [Akka Streams](https://doc.akka.io/docs/akka/2.5/stream/) utilizing
@@ -15,7 +15,7 @@ The implementation of `Subscriber` abstracts over the callbacks to:
 
 The implementation of `TopicAdmin` and `SubscriptionAdmin` implementing topic and subscription administration methods. 
 
-Encoding/Decoding of Messages are handled by the `gpubsub.Messageable` typeclass.
+Encoding/Decoding of Messages is handled by the `gpubsub.Messageable` type class.
 Some instances can be found in `co.upvest.google4s.gpubsub.Messagable.Converters`.
 
 ## Usage
@@ -23,14 +23,14 @@ Some instances can be found in `co.upvest.google4s.gpubsub.Messagable.Converters
 Add the last stable version of **google4s-gpubsub** to your build dependencies:
  
 ```sbt
-libraryDependencies += "co.upvest.google4s" %% "google4s-gpubsub" % "0.0.1"
+libraryDependencies += "co.upvest.google4s" %% "google4s-gpubsub" % "0.0.2"
 ```
 
 ## Examples
 
 ### Publishing
 
-Lets publish some Blobs.
+Let's publish some Blobs.
 ```scala
     import co.upvest.google4s.gpubsub.Publisher
     import co.upvest.google4s.gpubsub.Messageable

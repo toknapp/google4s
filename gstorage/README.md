@@ -1,6 +1,6 @@
 # google4s-gstorage
 
-This project aims to provide an easy access to [Google Cloud Storage](https://cloud.google.com/storage/) services.
+This project aims to provide easy access to [Google Cloud Storage](https://cloud.google.com/storage/) services.
 It is a wrapper of the official [google cloud storage java library](https://github.com/googleapis/google-cloud-java/tree/master/google-cloud-clients/google-cloud-storage)
 abstracting over the tedious omniversal builder pattern and the ability to use arbitrary context for effect handling and concurrency.
 
@@ -16,7 +16,7 @@ Additionally to the original cloud storage implementation, this project utilizes
 Add the last stable version of **google4s-gstorage** to your build dependencies:
  
 ```sbt
-libraryDependencies += "co.upvest.google4s" %% "google4s-gstorage" % "0.0.1"
+libraryDependencies += "co.upvest.google4s" %% "google4s-gstorage" % "0.0.2"
 ```
 
 You need to get a `Client` and provide it with the appropriate natural transformation
@@ -51,7 +51,7 @@ Lets create some clients computing in different `F`.
 ``` 
 
 ### Put 
-If a `Bucket` or a `Blob` with this name does not exists - it will be created or updated.
+If a `Bucket` or a `Blob` with this name does not exist - it will be created or updated.
 ```scala
   val payloadId = Blob.Id(BucketName("lalala"), BlobName("lololo"))
   
@@ -122,7 +122,7 @@ with a nice macro or some tagged types.
 
 ## Contact
 
-By questions, comments or suggestions feel free to get in touch by creating an PR, issue or telepathically. 
+By questions, comments or suggestions feel free to get in touch by creating a PR, issue or telepathically. 
 
 
 ### Cavecats [sic](https://www.youtube.com/watch?v=a0SuhNn8S60) 
