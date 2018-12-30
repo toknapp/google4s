@@ -73,7 +73,7 @@ By questions, comments or suggestions feel free to get in touch by creating an P
 
 ### Cavecats [sic](https://www.youtube.com/watch?v=a0SuhNn8S60) 
 
-Copyright 2018 Ivan Morozov, Gustav Behm, Tokn GmbH (https://upvest.co)
+Copyright 2019 Ivan Morozov, Gustav Behm, Tokn GmbH (https://upvest.co)
 
 **google4s-gstorage** is provided to you as free software under the MIT license.
 The MIT software license is attached in the [COPYING](/../COPYING) file.
