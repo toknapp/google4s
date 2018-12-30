@@ -4,6 +4,9 @@
 [![Latest version](https://index.scala-lang.org/toknapp/google4s/google4s-gkms/latest.svg?color=orange)](https://index.scala-lang.org/toknapp/google4s/google4s-gkms)
 [![Latest version](https://index.scala-lang.org/toknapp/google4s/google4s-gpubsub/latest.svg?color=orange)](https://index.scala-lang.org/toknapp/google4s/google4s-gpubsub)
 [![Latest version](https://index.scala-lang.org/toknapp/google4s/google4s-gstorage/latest.svg?color=orange)](https://index.scala-lang.org/toknapp/google4s/google4s-gstorage)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](COPYING)
+
+
 
 This project aims to provide safe, composable and easy to use clients for [Google Cloud Platform Services](https://github.com/googleapis/google-cloud-java) written
 in functional style **Scala**.
