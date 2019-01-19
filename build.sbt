@@ -1,6 +1,7 @@
 // *****************************************************************************
 // Projects
 // *****************************************************************************
+import microsites.ExtraMdFileConfig
 
 lazy val IT = config("it") extend Test
 
@@ -48,8 +49,8 @@ lazy val gkms = (project in file("gkms"))
   .dependsOn(core % "compile->compile;test->test;it->it")
 
 lazy val gpubsub = (project in file("gpubsub"))
-  .configs(IntegrationTest)
   .enablePlugins(BuildInfoPlugin)
+  .configs(IntegrationTest)
   .settings(commonSettings: _*)
   .settings(inConfig(IT)(Defaults.testSettings))
   .settings(publishSettings: _*)
@@ -91,6 +92,37 @@ lazy val google4s = (project in file("."))
     name := "google4s"
   )
   .aggregate(core, gstorage, gkms, gpubsub)
+
+  lazy val microsite = (project in file ("site"))
+  .enablePlugins(MicrositesPlugin)
+  .dependsOn(gpubsub, gkms, gstorage)
+  .settings(
+    skip in publish := true,
+    micrositeFooterText := Some(
+      """
+        |<p>&copy; 2019 <a href="https://github.com/toknapp/google4s">Ivan Morozov, Tokn GmbH</a></p>
+        |""".stripMargin
+    ),
+    micrositeName := "Google4s",
+    micrositeDescription := "A lean, functional library for Google Cloud Services in Scala",
+    micrositeAuthor := "Ivan Morozov",
+    micrositeOrganizationHomepage := "https://toknapp.github.io/google4s/",
+    micrositeGitHostingUrl := "https://github.com/toknapp/google4s",
+    micrositeGithubOwner := "upvest",
+    micrositeGithubRepo := "google4s",
+    micrositeTwitterCreator := "@allquantor",
+
+    scalacOptions in Tut ~= (_ filterNot Set(
+    "-Xfatal-warnings",
+    "-Ywarn-numeric-widen",
+    "-Ywarn-unused:imports",
+    "-Ywarn-unused:locals",
+    "-Ywarn-unused:patvars",
+    "-Ywarn-unused:privates",
+    "-Ywarn-numeric-widen",
+    "-Ywarn-dead-code",
+    "-Xlint:-missing-interpolator,_").contains),
+  )
 
 // *****************************************************************************
 // Dependencies
@@ -188,6 +220,7 @@ lazy val credentialSettings = Seq(
   } yield Credentials("Sonatype Nexus Repository Manager", "oss.sonatype.org", username, password)).toSeq
 )
 
+import microsites.ExtraMdFileConfig
 import sbtrelease.ReleaseStateTransformations._
 import sbtrelease.Version
 
