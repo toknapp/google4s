@@ -1,3 +1,10 @@
+---
+layout: docs
+title:  "PubSub"
+position: 3
+sections: gpubsub
+---
+
 # google4s-gpubsub
 
 This project aims to provide easy access to [Google PubSub](https://cloud.google.com/pubsub/docs/) services.
@@ -23,59 +30,10 @@ Some instances can be found in `co.upvest.google4s.gpubsub.Messagable.Converters
 Add the last stable version of **google4s-gpubsub** to your build dependencies:
  
 ```sbt
-libraryDependencies += "co.upvest.google4s" %% "google4s-gpubsub" % "0.0.2"
+libraryDependencies += "co.upvest.google4s" %% "google4s-gpubsub" % "..."
 ```
 
-## Examples
-
-### Publishing
-
-Let's publish some Blobs.
-```scala
-    import co.upvest.google4s.gpubsub.Publisher
-    import co.upvest.google4s.gpubsub.Messageable
-    // Some instances of Messageble
-    import co.upvest.google4s.gpubsub.instances._
-    import co.upvest.google4s.core._
-    import akka.stream.scaladsl.{Source, Sink}
-
-    case class Blob(s: String)
-    
-    // Here the decoder/encoder typeclass.
-    implicit val blobConverter = Messageable.of[Blob](
-      b => fromBytes.asMsg(b.blub.getBytes),
-      pm => Blob(pm.getData.toStringUtf8)
-  )
-  
-    // Config
-    val c: Publisher.Config = Publisher.Config(...)
-  
-    // Create a Flow
-    val pFlow = Publisher.flow[Blob](c)
-    // or a Client
-    val client = Publisher(c)(IdLift.liftId)
-    
-    // the flow constructor finds the implicit in the context
-    // to convert the Blobs.
-    Source(Blob("a") :: Blob("b") :: Nil).via(pFlow).to(Sink.seq)
-    
-    // or publish directly from client in F of your choice.
-    client.publish(Blob("bolb"), IdLift.liftId)
-``` 
-### Subscribing
-```scala
-import co.upvest.google4s.gpubsub.Subscriber
-import akka.stream.scaladsl.Sink
-
-val config: Subscriber.Config = Subscriber.Config(...)
-
-// Create a source
-val source = Subscriber(config)
-
-// Run the source into a flow/sink of choice.
-source.runWith(Sink.foreach(println))
-
-```
+**For more see [example](./example.html)**
 
 ## Limitations
 The current limitations and known issues are stated below. If you think
@@ -90,16 +48,3 @@ versatile and rich on options, those can be confusing when reading source code d
 mixed with builder pattern you see everywhere in the Java implementation. We tried to keep the configuration
 as lean as possible so we might miss some important things, let 
 use know if you miss something.
-
-
-## Contact
-
-By questions, comments or suggestions feel free to get in touch by creating a PR, issue or telepathically. 
-
-
-### Cavecats [sic](https://www.youtube.com/watch?v=a0SuhNn8S60) 
-
-Copyright 2019 Ivan Morozov, Gustav Behm, Tokn GmbH (https://upvest.co)
-
-**google4s-gstorage** is provided to you as free software under the MIT license.
-The MIT software license is attached in the [COPYING](/../COPYING) file.

@@ -100,7 +100,7 @@ lazy val google4s = (project in file("."))
     skip in publish := true,
     micrositeFooterText := Some(
       """
-        |<p>&copy; 2019 <a href="https://github.com/toknapp/google4s">Ivan Morozov</a></p>
+        |<p>&copy; 2019 <a href="https://github.com/toknapp/google4s">Ivan Morozov, Tokn GmbH</a></p>
         |""".stripMargin
     ),
     micrositeName := "Google4s",
@@ -111,7 +111,7 @@ lazy val google4s = (project in file("."))
     micrositeGithubOwner := "upvest",
     micrositeGithubRepo := "google4s",
     micrositeTwitterCreator := "@allquantor",
-    
+
     scalacOptions in Tut ~= (_ filterNot Set(
     "-Xfatal-warnings",
     "-Ywarn-numeric-widen",
@@ -122,19 +122,6 @@ lazy val google4s = (project in file("."))
     "-Ywarn-numeric-widen",
     "-Ywarn-dead-code",
     "-Xlint:-missing-interpolator,_").contains),
-    
-    micrositeExtraMdFiles := Map(
-      file("README.md") -> ExtraMdFileConfig(
-        "readme.md",
-        "home"
-  ),
-  file("CONSEQUAT.md") -> ExtraMdFileConfig(
-    "consequat.md",
-    "page",
-    Map("title" -> "Consequat", "section" -> "consequat", "position" -> "5")
-  )
-)
-
   )
 
 // *****************************************************************************

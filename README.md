@@ -7,17 +7,14 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](COPYING)
 
 
-
 This project aims to provide safe, composable and easy to use clients for [Google Cloud Platform Services](https://github.com/googleapis/google-cloud-java) written
 in functional style **Scala**.
 
 Currently supported clients are
 
-- [Google Cloud Storage](gstorage/README.md)
-
-- [Google Cloud PubSub](gpubsub/README.md)
-
-- [Google Cloud Key Management Service (KMS)](gkms/README.md)
+- Google Cloud Storage
+- Google Cloud PubSub
+- Google Cloud Key Management Service (KMS)
 
 
 The client implementations are using Google's Java clients underneath
@@ -26,34 +23,22 @@ however, the Java code is mostly generated so it's not really fun to use it.
  - Omniversal nested builder pattern
  - No or limited concurrency
  - Uncomposable patterns 
- 
-`google4s` solves this problems by replacing the builder pattern with simple
-method calls with strong data types. Effect handling and concurrency can be
-done in an arbitary kind `F[_]` you just have to provide the natural transformation:
-```scala
-(() => ?) ~> F
-``` 
-See the `Llift` type [for deails](core/src/main/scala/co/upvest/google4s/core/package.scala).
 
-## Usage
 The clients are structured and released as separate modules.
-
 Add the latest version to your project
 
 ### Latest Stable
 ```sbt
-libraryDependencies += "co.upvest.google4s" %% "google4s-..."  % "0.0.2"
+libraryDependencies += "co.upvest.google4s" %% "google4s-..."  % "..."
 ```
 ### Latest Snapshot
 ```sbt
-libraryDependencies += "co.upvest.google4s" %% "google4s-..."  % "0.0.2-SNAPSHOT"
+libraryDependencies += "co.upvest.google4s" %% "google4s-..."  % "0..-SNAPSHOT"
 ```
 
-## Examples
-Please refer to the specific client documentation for examples:
-- [Google Storage](gstorage/README.md)
-- [Google PubSub](gpubsub/README.md) 
-- [Google KMS](gkms/README.md).
+## Examples/Doc
+Please refer to the [documentation page](https://toknapp.github.io/google4s/):
+
 
 ## Contributing
 
@@ -65,16 +50,11 @@ Coming soon... PR's are welcome and highly appreciated!
 configuration could be missing. If you encounter this problem **please create an issue or a PR**
 we are happy to add what is missing.
 
-- Please refer to the specific client documentation for the list of known limitations:
-    - [Google Storage](gstorage/README.md)
-    - [Google PubSub](gpubsub/README.md) 
-    - [Google (KMS)](gkms/README.md).
-   
-
+- Please refer to the specific [documentation page](https://toknapp.github.io/google4s/):
+ 
 ## Contact
 
 By questions, comments or suggestions feel free to get in touch by creating an PR, issue or telepathically. 
-
 
 ### Cavecats [sic](https://www.youtube.com/watch?v=a0SuhNn8S60) 
 
@@ -82,4 +62,3 @@ Copyright 2019 Ivan Morozov, Gustav Behm, Tokn GmbH (https://upvest.co)
 
 **google4s** is provided to you as free software under the MIT license.
 The MIT software license is attached in the [COPYING](COPYING) file.
-
