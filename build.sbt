@@ -107,6 +107,7 @@ lazy val google4s = (project in file("."))
     micrositeDescription := "A lean, functional library for Google Cloud Services in Scala",
     micrositeAuthor := "Ivan Morozov",
     micrositeOrganizationHomepage := "http://www.upvest.co",
+    micrositeBaseUrl:= "/google4s",
     micrositeGithubOwner := "toknapp",
     micrositeGithubRepo := "google4s",
     micrositeTwitterCreator := "@allquantor",
