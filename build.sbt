@@ -106,12 +106,12 @@ lazy val google4s = (project in file("."))
     micrositeName := "Google4s",
     micrositeDescription := "A lean, functional library for Google Cloud Services in Scala",
     micrositeAuthor := "Ivan Morozov",
-    micrositeOrganizationHomepage := "https://toknapp.github.io/google4s/",
-    micrositeGitHostingUrl := "https://github.com/toknapp/google4s",
-    micrositeGithubOwner := "upvest",
+    micrositeOrganizationHomepage := "http://www.upvest.co",
+    micrositeGithubOwner := "toknapp",
     micrositeGithubRepo := "google4s",
     micrositeTwitterCreator := "@allquantor",
-
+    micrositePushSiteWith := GitHub4s,
+    micrositeGithubToken := Some("GIT_TOKEN"),
     scalacOptions in Tut ~= (_ filterNot Set(
     "-Xfatal-warnings",
     "-Ywarn-numeric-widen",
