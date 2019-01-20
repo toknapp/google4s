@@ -1,7 +1,7 @@
 options:
 
   - title: KMS
-    url: gkms/
+    url: gkms/index.html
     menu_section: KMS
 
     nested_options:
@@ -9,7 +9,7 @@ options:
         url: gkms/example.html
 
   - title: GoogleCloudStorage
-    url: gstorage/
+    url: gstorage/index.html
     menu_section: GoogleCloudStorage
 
     nested_options:
@@ -17,7 +17,7 @@ options:
         url: gstorage/example.html
 
   - title: PubSub
-    url: gpubsub/
+    url: gpubsub/index.html
     menu_section: PubSub
 
     nested_options:

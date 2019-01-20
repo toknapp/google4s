@@ -111,7 +111,17 @@ lazy val google4s = (project in file("."))
     micrositeGithubRepo := "google4s",
     micrositeTwitterCreator := "@allquantor",
     micrositePushSiteWith := GitHub4s,
-    micrositeGithubToken := Some("GITHUB_TOKEN"),
+    micrositeGithubToken := Some("GIT_TOKEN"),
+    micrositeHighlightTheme := "atom-one-light",
+    micrositePalette := Map(
+    "brand-primary" -> "#3e5b95",
+    "brand-secondary" -> "#294066",
+    "brand-tertiary" -> "#2d5799",
+    "gray-dark" -> "#49494B",
+    "gray" -> "#7B7B7E",
+    "gray-light" -> "#E5E5E6",
+    "gray-lighter" -> "#F4F3F4",
+    "white-color" -> "#FFFFFF"),
     scalacOptions in Tut ~= (_ filterNot Set(
     "-Xfatal-warnings",
     "-Ywarn-numeric-widen",
