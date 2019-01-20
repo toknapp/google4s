@@ -1,0 +1,11 @@
+name: Google4s
+baseurl: /google4s
+description: A lean, functional library for Google Cloud Services in Scala
+highlighter: rouge
+docs: true
+collections:
+  tut:
+    output: true
+version: 0.4.1-SNAPSHOT
+org: co.upvest
+markdown: kramdown
