@@ -1,0 +1,55 @@
+<html><head><title>Google4s: PubSub</title><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Ivan Morozov" /><meta name="description" content="A lean, functional library for Google Cloud Services in Scala" /><meta name="og:image" content="/img/poster.png" /><meta name="image" property="og:image" content="/img/poster.png" /><meta name="og:title" content="Google4s: PubSub" /><meta name="title" property="og:title" content="Google4s: PubSub" /><meta name="og:site_name" content="Google4s" /><meta name="og:url" content="" /><meta name="og:type" content="website" /><meta name="og:description" content="A lean, functional library for Google Cloud Services in Scala" /><link rel="icon" type="image/png" href="/img/favicon.png" /><meta name="twitter:title" content="Google4s: PubSub" /><meta name="twitter:image" content="/img/poster.png" /><meta name="twitter:description" content="A lean, functional library for Google Cloud Services in Scala" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:creator" content="@allquantor" /><link rel="icon" type="image/png" sizes="16x16" href="/img/favicon16x16.png" /><link rel="icon" type="image/png" sizes="24x24" href="/img/favicon24x24.png" /><link rel="icon" type="image/png" sizes="32x32" href="/img/favicon32x32.png" /><link rel="icon" type="image/png" sizes="48x48" href="/img/favicon48x48.png" /><link rel="icon" type="image/png" sizes="57x57" href="/img/favicon57x57.png" /><link rel="icon" type="image/png" sizes="60x60" href="/img/favicon60x60.png" /><link rel="icon" type="image/png" sizes="64x64" href="/img/favicon64x64.png" /><link rel="icon" type="image/png" sizes="70x70" href="/img/favicon70x70.png" /><link rel="icon" type="image/png" sizes="72x72" href="/img/favicon72x72.png" /><link rel="icon" type="image/png" sizes="76x76" href="/img/favicon76x76.png" /><link rel="icon" type="image/png" sizes="96x96" href="/img/favicon96x96.png" /><link rel="icon" type="image/png" sizes="114x114" href="/img/favicon114x114.png" /><link rel="icon" type="image/png" sizes="120x120" href="/img/favicon120x120.png" /><link rel="icon" type="image/png" sizes="128x128" href="/img/favicon128x128.png" /><link rel="icon" type="image/png" sizes="144x144" href="/img/favicon144x144.png" /><link rel="icon" type="image/png" sizes="150x150" href="/img/favicon150x150.png" /><link rel="icon" type="image/png" sizes="152x152" href="/img/favicon152x152.png" /><link rel="icon" type="image/png" sizes="196x196" href="/img/favicon196x196.png" /><link rel="icon" type="image/png" sizes="310x310" href="/img/favicon310x310.png" /><link rel="icon" type="image/png" sizes="310x150" href="/img/favicon310x150.png" /><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /><link rel="stylesheet" href="/highlight/styles/atom-one-light.css" /><link rel="stylesheet" href="/css/style.css" /><link rel="stylesheet" href="/css/palette.css" /><link rel="stylesheet" href="/css/codemirror.css" /></head><body class="docs"><div id="wrapper"><div id="sidebar-wrapper"><ul id="sidebar" class="sidebar-nav"><li class="sidebar-brand"><a href="/" class="brand"><div class="brand-wrapper"><span>Google4s</span></div></a></li> <li><a href="/gkms/" class="">KMS</a> <ul class="sub_section"> <li><a href="/gkms/example.html" class="">Examples</a></li></ul></li> <li><a href="/gstorage/" class="">GoogleCloudStorage</a> <ul class="sub_section"> <li><a href="/gstorage/example.html" class="">Examples</a></li></ul></li> <li><a href="/gpubsub/" class=" active ">PubSub</a> <ul class="sub_section"> <li><a href="/gpubsub/example.html" class="">Examples</a></li></ul></li></ul></div><div id="page-content-wrapper"><div class="nav"><div class="container-fluid"><div class="row"><div class="col-lg-12"><div class="action-menu pull-left clearfix"><a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a></div><ul class="pull-right"><li id="gh-eyes-item" class="hidden-xs"><a href="https://github.com/toknapp/google4s"><i class="fa fa-eye"></i><span>WATCH<span id="eyes" class="label label-default">--</span></span></a></li><li id="gh-stars-item" class="hidden-xs"><a href="https://github.com/toknapp/google4s"><i class="fa fa-star-o"></i><span>STARS<span id="stars" class="label label-default">--</span></span></a></li><li><a href="#" onclick="shareSiteTwitter('Google4s A lean, functional library for Google Cloud Services in Scala');"><i class="fa fa-twitter"></i></a></li><li><a href="#" onclick="shareSiteFacebook('Google4s A lean, functional library for Google Cloud Services in Scala');"><i class="fa fa-facebook"></i></a></li><li><a href="#" onclick="shareSiteGoogle();"><i class="fa fa-google-plus"></i></a></li></ul></div></div></div></div><div id="content" data-github-owner="toknapp" data-github-repo="google4s"><div class="content-wrapper"><section><h1 id="google4s-gpubsub">google4s-gpubsub</h1>
+
+<p>This project aims to provide easy access to <a href="https://cloud.google.com/pubsub/docs/">Google PubSub</a> services.
+It is a wrapper of the official <a href="https://github.com/googleapis/google-cloud-java/tree/master/google-cloud-clients/google-cloud-pubsub">google PubSub Java library</a>.</p>
+
+<p>The implementation of <code class="highlighter-rouge">Publisher</code> abstracts over Google Futures to either publish
+to:</p>
+<ul>
+  <li>A <code class="highlighter-rouge">Flow</code> in <a href="https://doc.akka.io/docs/akka/2.5/stream/">Akka Streams</a>.</li>
+  <li>Scala’s <code class="highlighter-rouge">Future</code> by converting the<code class="highlighter-rouge">Google Futures</code></li>
+  <li>An arbitrary context <code class="highlighter-rouge">F[_]</code> by providing a natural transformation <code class="highlighter-rouge">(() =&gt; ?) ~&gt; F</code> to lift the computation.</li>
+</ul>
+
+<p>The implementation of <code class="highlighter-rouge">Subscriber</code> abstracts over the callbacks to:</p>
+<ul>
+  <li><code class="highlighter-rouge">Source</code> in context of <a href="https://doc.akka.io/docs/akka/2.5/stream/">Akka Streams</a> utilizing
+<code class="highlighter-rouge">akka.stream.scaladsl.SourceQueue</code> for providing backpressure.</li>
+</ul>
+
+<p>The implementation of <code class="highlighter-rouge">TopicAdmin</code> and <code class="highlighter-rouge">SubscriptionAdmin</code> implementing topic and subscription administration methods.</p>
+
+<p>Encoding/Decoding of Messages is handled by the <code class="highlighter-rouge">gpubsub.Messageable</code> type class.
+Some instances can be found in <code class="highlighter-rouge">co.upvest.google4s.gpubsub.Messagable.Converters</code>.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Add the last stable version of <strong>google4s-gpubsub</strong> to your build dependencies:</p>
+
+<pre><code class="language-sbt">libraryDependencies += "co.upvest.google4s" %% "google4s-gpubsub" % "..."
+</code></pre>
+
+<p><strong>For more see <a href="./example.html">example</a></strong></p>
+
+<h2 id="limitations">Limitations</h2>
+<p>The current limitations and known issues are stated below. If you think
+something is missed or have to be mentioned here please let us know.</p>
+
+<ul>
+  <li>
+    <p>The streaming implementation is not abstract and uses AkkaStreams. 
+Plan for the future is to make an abstract specification and add
+implementations for scalaz streams and fs2.</p>
+  </li>
+  <li>
+    <p>The potential configurations of google libraries can be incredibly 
+versatile and rich on options, those can be confusing when reading source code due to constructor overloading
+mixed with builder pattern you see everywhere in the Java implementation. We tried to keep the configuration
+as lean as possible so we might miss some important things, let 
+use know if you miss something.</p>
+  </li>
+</ul>
+</section></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/highlight/highlight.pack.js"></script><script>hljs.configure({languages:['scala','java','bash']});
+hljs.initHighlighting();
+              </script><script>((window.gitter = {}).chat = {}).options = {
+room: 'toknapp/google4s'};</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script><script src="/js/main.js"></script></body></html>
