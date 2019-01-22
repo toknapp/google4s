@@ -13,6 +13,7 @@ val filterDependencies: ModuleID => ModuleID = { dependency =>
 
 addCommandAlias("fmt", "all scalafmtSbt scalafmt test:scalafmt")
 addCommandAlias("check", "all scalafmtSbtCheck scalafmtCheck test:scalafmtCheck")
+addCommandAlias("releaseSite", "microsite/publishMicrosite")
 
 lazy val gstorage = (project in file("gstorage"))
   .enablePlugins(BuildInfoPlugin)
@@ -107,11 +108,12 @@ lazy val google4s = (project in file("."))
     micrositeDescription := "A lean, functional library for Google Cloud Services in Scala",
     micrositeAuthor := "Ivan Morozov",
     micrositeOrganizationHomepage := "http://www.upvest.co",
+    micrositeBaseUrl:= "/google4s",
     micrositeGithubOwner := "toknapp",
     micrositeGithubRepo := "google4s",
     micrositeTwitterCreator := "@allquantor",
+    micrositeGithubToken := sys.env.get("GIT_TOKEN"),
     micrositePushSiteWith := GitHub4s,
-    micrositeGithubToken := Some("GIT_TOKEN"),
     scalacOptions in Tut ~= (_ filterNot Set(
     "-Xfatal-warnings",
     "-Ywarn-numeric-widen",
