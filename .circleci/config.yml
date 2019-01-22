@@ -51,13 +51,13 @@ jobs:
     <<: *sbt-build
     environment:
       IMPORT_SIGNING_KEY: "1"
-      SBT_COMMAND: "; release with-defaults; releaseSite"
+      SBT_COMMAND: "; release with-defaults"
 
   release-snapshot:
     <<: *sbt-build
     environment:
       IMPORT_SIGNING_KEY: "1"
-      SBT_COMMAND: "publishSigned; releaseSite"
+      SBT_COMMAND: "publishSigned"
 
   integration-test:
     docker:
